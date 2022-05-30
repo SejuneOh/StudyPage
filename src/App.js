@@ -2,19 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import HookSample from './Components/HookSample.tsx';
+import ContextSample from './Components/ContextSample.tsx';
 
 
 
+
+// styled components
 const Container = styled.div`
-  border: 4px solid blue;
+  // border: 4px solid blue;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 `;
 
 const Ul = styled.ul`
-  border: 2px solid red;
+  // border: 2px solid red;
   height: 120px;
   display: flex;
   align-content: center;
+  // overflow : scroll;
+  overflow-y : hidden;
+  margin: 20px
+  // flex-wrap : wrap
   
 
 `;
@@ -28,6 +39,13 @@ const Li = styled.li`
   box-sizing: border-box;
   font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
+`;
+
+// styled Link in react-router-dom
+// parameter 처럼 컴포넌트를 받아 스타일링 할 수 있다.
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const Main = () => {
@@ -35,9 +53,12 @@ const Main = () => {
   return (
     <Container>
       <Ul>
-        <Link to="/Hook">
-          <Li>./Component/Hook.tsx</Li>
-        </Link>
+        <StyledLink to="/HookSample">
+          <Li>../HookSample.tsx</Li>
+        </StyledLink>
+        <StyledLink to="/ContextSample">
+          <Li>../ContextSample.tsx</Li>
+        </StyledLink>
       </Ul>
     </Container>
   )
@@ -51,7 +72,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main />}></Route>
-          {/* <Route path='/Hook' element={ }></Route> */}
+          <Route path='/HookSample' element={<HookSample />}></Route>
+          <Route path='/ContextSample' element={<ContextSample />}></Route>
         </Routes>
       </BrowserRouter>
     </>
