@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
 
 
 const Container = styled.div`
@@ -22,26 +24,36 @@ const Li = styled.li`
   line-height: 120px;
   hight: 10px;
   list-style-type: none;
-  margin-left: 50px;
+  margin-left: 40px;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
- `;
+`;
+
+const Main = () => {
+
+  return (
+    <Container>
+      <Ul>
+        <Link to="/Hook">
+          <Li>./Component/Hook.tsx</Li>
+        </Link>
+      </Ul>
+    </Container>
+  )
+}
 
 
 // main page li styled
 function App() {
   return (
     <>
-      <Container>
-        <Ul>
-          <Li>test</Li>
-          <Li>test</Li>
-          <Li>test</Li>
-        </Ul>
-        <Ul></Ul>
-        <Ul></Ul>
-      </Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Main />}></Route>
+          {/* <Route path='/Hook' element={ }></Route> */}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
