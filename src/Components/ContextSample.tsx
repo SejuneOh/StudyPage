@@ -24,7 +24,7 @@ export default function ContextSample() {
     return <div>this is hello4, and name is {name}</div>;
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     setName(e.target.value);
   };
 

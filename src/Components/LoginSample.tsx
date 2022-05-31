@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MutableRefObject } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -35,10 +35,12 @@ export default function LoginSample() {
   const [id, setId] = React.useState("");
   const [pw, setPw] = React.useState("");
   const [isLogin, setIsLogin] = React.useState(false);
-  const idRef = React.useRef(null);
-  const pwRef = React.useRef(null);
 
-  const inputChange = (e) => {
+  // React.MutableRefObj의<HtmlInputElement>로 다운캐스팅
+  const idRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+  const pwRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  const inputChange = (e: any) => {
     if (e.target.id === "id") {
       setId(e.target.value);
     } else {

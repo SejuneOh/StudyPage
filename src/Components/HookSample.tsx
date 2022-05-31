@@ -6,6 +6,8 @@ export default function HookSample() {
   const [intervalFlag, setInervalFlag] = React.useState(false);
 
   const inputChange = (e: any) => {
+    console.log(typeof e);
+
     setValue(e.target.value);
     setTime(3);
     setInervalFlag(true);
