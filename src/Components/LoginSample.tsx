@@ -2,46 +2,68 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// styled
+const Wrapper = styled.div`
+  border: 3px solid blue;
+`;
+
+const LoginContainer = styled.div`
+  width: 340px;
+  margin: auto;
+`;
+
+const H3Login = styled.h3`
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 20px;
+`;
+
+const Input = styled.input`
+  width: 300px;
+  height: 54px;
+  padding: 0 19px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 10px 0;
+`;
+
 export default function LoginSample() {
-  // styled
-  const Wrapper = styled.div`
-    // height: 100vh;
-    border: 3px solid blue;
-  `;
-
-  const LoginContainer = styled.div`
-    width: 340px;
-    margin: auto;
-    // border: 2px solid red;
-  `;
-
-  const H3Login = styled.h3`
-    text-align: center;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 20px;
-  `;
-
-  const Input = styled.input`
-    width: 300px;
-    height: 54px;
-    padding: 0 19px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 10px 0;
-  `;
-
   const [id, setId] = React.useState("");
   const [pw, setPw] = React.useState("");
+  const [isLogin, setIsLogin] = React.useState(false);
+  const idRef = React.useRef(null);
+  const pwRef = React.useRef(null);
 
   const inputChange = (e) => {
     if (e.target.id === "id") {
-      this.setId(e.target.value);
+      setId(e.target.value);
     } else {
-      this.setPw(e.target.value);
+      setPw(e.target.value);
+    }
+
+    setIsLogin(id.length >= 6 && pw.length >= 12 ? true : false);
+  };
+
+  const btnClickHandle = () => {
+    if (isLogin) return;
+
+    if (id.length < 6 && pw.length < 12) {
+      alert("id 6글자 이상, pw 12글자 입력해주세요");
+      idRef.current.value = "";
+      pwRef.current.value = "";
+      idRef.current.focus();
+    } else if (id.length < 6) {
+      alert("id 6글자 이상 입력해주세요");
+      idRef.current.value = "";
+      idRef.current.focus();
+    } else {
+      alert("pw 12글자 입력해주세요");
+      pwRef.current.value = "";
+      pwRef.current.focus();
     }
   };
 
@@ -64,16 +86,19 @@ export default function LoginSample() {
             id="id"
             placeholder="아이디를 입력해주세요"
             onChange={inputChange}
+            ref={idRef}
           ></Input>
           <Input
             id="pw"
             placeholder="password를 입력해주세요"
             type="password"
             onChange={inputChange}
+            ref={pwRef}
           ></Input>
 
           <Link
-            to="/Register"
+            to={isLogin ? "/Register" : "#"}
+            // to="/Register"
             style={{
               width: "100%",
             }}
@@ -87,12 +112,13 @@ export default function LoginSample() {
                 color: "#fff",
                 borderRadius: "3px",
               }}
+              onClick={btnClickHandle}
             >
               로그인
             </button>
           </Link>
           <Link
-            to="/Signup"
+            to="#"
             style={{
               textDecoration: "none",
             }}
