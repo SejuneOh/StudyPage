@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import HookSample from './Components/HookSample.tsx';
 import ContextSample from './Components/ContextSample.tsx';
 import LoginSample from './Components/LoginSample.tsx'
+import Register from './Components/Register.tsx'
+import Signup from './Components/Signup.tsx'
 
 
 
@@ -79,6 +81,8 @@ function App() {
           <Route path='/HookSample' element={<HookSample />}></Route>
           <Route path='/ContextSample' element={<ContextSample />}></Route>
           <Route path='/LoginSample' element={<LoginSample />}></Route>
+          <Route path='/Register/:id' element={<Register />}></Route>
+          <Route path='/Signup' element={<Signup />}></Route>
         </Routes>
       </BrowserRouter>
     </>
