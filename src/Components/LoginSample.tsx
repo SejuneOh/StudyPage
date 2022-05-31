@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export default function LoginSample() {
+  // styled
   const Wrapper = styled.div`
     // height: 100vh;
     border: 3px solid blue;
@@ -33,6 +34,17 @@ export default function LoginSample() {
     margin: 10px 0;
   `;
 
+  const [id, setId] = React.useState("");
+  const [pw, setPw] = React.useState("");
+
+  const inputChange = (e) => {
+    if (e.target.id === "id") {
+      this.setId(e.target.value);
+    } else {
+      this.setPw(e.target.value);
+    }
+  };
+
   return (
     <>
       <ul>
@@ -48,8 +60,17 @@ export default function LoginSample() {
       <Wrapper>
         <LoginContainer>
           <H3Login>로그인</H3Login>
-          <Input placeholder="아이디를 입력해주세요"></Input>
-          <Input placeholder="password를 입력해주세요" type="password"></Input>
+          <Input
+            id="id"
+            placeholder="아이디를 입력해주세요"
+            onChange={inputChange}
+          ></Input>
+          <Input
+            id="pw"
+            placeholder="password를 입력해주세요"
+            type="password"
+            onChange={inputChange}
+          ></Input>
 
           <Link
             to="/Register"
@@ -70,7 +91,12 @@ export default function LoginSample() {
               로그인
             </button>
           </Link>
-          <Link to="/Signup">
+          <Link
+            to="/Signup"
+            style={{
+              textDecoration: "none",
+            }}
+          >
             <button
               style={{
                 width: "100%",
