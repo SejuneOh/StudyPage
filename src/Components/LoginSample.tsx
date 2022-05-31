@@ -120,7 +120,7 @@ export default function LoginSample() {
             </button>
           </Link>
           <Link
-            to="#"
+            to="/Signup"
             style={{
               textDecoration: "none",
             }}
