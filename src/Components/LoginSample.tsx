@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function LoginSample() {
   return (
@@ -19,8 +20,12 @@ export default function LoginSample() {
         <input type="text"></input>
         PASSWORD:
         <input type="Password"></input>
-        <button>로그인</button>
-        <a href="#">회원가입</a>
+        <Link to="/Register">
+          <button>로그인</button>
+        </Link>
+        <Link to="/Signup">
+          <a href="#">회원가입</a>
+        </Link>
       </div>
     </>
   );
