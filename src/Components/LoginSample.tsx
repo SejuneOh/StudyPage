@@ -97,7 +97,7 @@ export default function LoginSample() {
           ></Input>
 
           <Link
-            to={isLogin ? "/Register" : "#"}
+            to={isLogin ? `/Register/${id}` : "#"}
             // to="/Register"
             style={{
               width: "100%",

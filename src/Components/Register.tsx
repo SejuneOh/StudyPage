@@ -1,5 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 export default function Register() {
-  return <div>회원가입완료</div>;
+  const params = useParams();
+
+  console.dir(params);
+  return <div>{params.id}님 안녕하세요</div>;
 }

@@ -81,7 +81,7 @@ function App() {
           <Route path='/HookSample' element={<HookSample />}></Route>
           <Route path='/ContextSample' element={<ContextSample />}></Route>
           <Route path='/LoginSample' element={<LoginSample />}></Route>
-          <Route path='/Register' element={<Register />}></Route>
+          <Route path='/Register/:id' element={<Register />}></Route>
           <Route path='/Signup' element={<Signup />}></Route>
         </Routes>
       </BrowserRouter>
