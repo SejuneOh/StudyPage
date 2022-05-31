@@ -47,7 +47,7 @@ export default function ContextSample() {
       </ul>
 
       <p>
-        <br></br>x
+        <br></br>
       </p>
     </>
   );

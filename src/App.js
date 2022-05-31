@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import HookSample from './Components/HookSample.tsx';
 import ContextSample from './Components/ContextSample.tsx';
+import LoginSample from './Components/LoginSample.tsx'
 
 
 
@@ -59,6 +60,9 @@ const Main = () => {
         <StyledLink to="/ContextSample">
           <Li>../ContextSample.tsx</Li>
         </StyledLink>
+        <StyledLink to="/LoginSample">
+          <Li>../LoginSample.tsx</Li>
+        </StyledLink>
       </Ul>
     </Container>
   )
@@ -74,6 +78,7 @@ function App() {
           <Route path='/' element={<Main />}></Route>
           <Route path='/HookSample' element={<HookSample />}></Route>
           <Route path='/ContextSample' element={<ContextSample />}></Route>
+          <Route path='/LoginSample' element={<LoginSample />}></Route>
         </Routes>
       </BrowserRouter>
     </>
