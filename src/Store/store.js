@@ -1,20 +1,11 @@
 import { createStore, combineReducers } from 'redux'
+import counterReducer from '../Reducer/counterReducer'
+import contextReducer from '../Reducer/contextReducer'
 
-const INITIAL_STATE = 0;
-const counterReducer = (state = INITIAL_STATE, action) => {
-  console.log(`aciton:${action.type}, state: ${state}`);
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
-}
 
 const store = createStore(combineReducers({
   counter: counterReducer,
+  context: contextReducer,
 }))
 
 export default store;

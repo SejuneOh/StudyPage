@@ -61,8 +61,6 @@ export default function ContextSample2() {
           <HelloId />
         </IdContext.Provider>
       </UserContext.Provider>
-      {/* <UserContext.Provider value={defaultUser}>
-      </UserContext.Provider> */}
     </>
   );
 }
