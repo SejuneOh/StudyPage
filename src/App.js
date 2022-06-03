@@ -7,6 +7,8 @@ import ContextSample from './Components/ContextSample.tsx';
 import LoginSample from './Components/LoginSample.tsx'
 import Register from './Components/Register.tsx'
 import Signup from './Components/Signup.tsx'
+import ContextSample2 from './Components/ContextSample2.tsx';
+import ReduxSample from './Components/ReduxSample.tsx'
 
 
 
@@ -66,6 +68,14 @@ const Main = () => {
           <Li>../LoginSample.tsx</Li>
         </StyledLink>
       </Ul>
+      <Ul>
+        <StyledLink to="/ContextSample2">
+          <Li>../ContextSample2.tsx</Li>
+        </StyledLink>
+        <StyledLink to="/ReduxSample">
+          <Li>../ReduxSample.tsx</Li>
+        </StyledLink>
+      </Ul>
     </Container>
   )
 }
@@ -83,6 +93,8 @@ function App() {
           <Route path='/LoginSample' element={<LoginSample />}></Route>
           <Route path='/Register/:id' element={<Register />}></Route>
           <Route path='/Signup' element={<Signup />}></Route>
+          <Route path='/ContextSample2' element={<ContextSample2 />}></Route>
+          <Route path='/ReduxSample' element={<ReduxSample />}></Route>
         </Routes>
       </BrowserRouter>
     </>
