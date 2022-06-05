@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux'
 import counterReducer from '../Reducer/counterReducer'
-import contextReducer from '../Reducer/contextReducer'
+import contextReducer from '../Reducer/contextReducer.js'
 
 
 const store = createStore(combineReducers({

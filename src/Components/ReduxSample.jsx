@@ -1,11 +1,25 @@
 import React from "react";
 import store from "../Store/store.js";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function ReduxSample() {
   const [count, setCount] = React.useState(store.getState().counter);
-  const dispatch = (action: any) => {
+  const [compId, setcompId] = React.useState("");
+
+  const dispatch = (action) => {
     store.dispatch(action);
     setCount(store.getState().counter);
+  };
+
+
+  const id = useSelector((state) => state.context);
+  const dispatchContex = useDispatch();
+
+  const btnClickHandle = () => {
+    dispatch({
+      type: "LOGIN",
+      payload: compId
+    })
   };
 
   return (
@@ -52,6 +66,17 @@ export default function ReduxSample() {
           <button onClick={() => dispatch({ type: "DECREMENT" })}>- </button>
         </div>
       </div>
+      <p
+        style={{
+          border: "1px solid black",
+        }}
+      ></p>
+      <h2>실습2</h2>
+      <input type="text" placeholder="회원가입"
+        onChange={e => setcompId(e.target.value)}></input>
+      <button onChange={btnClickHandle}>회원가입</button>
+      <br />
+      <span>{id}님 안녕하세요</span>
     </>
   );
 }

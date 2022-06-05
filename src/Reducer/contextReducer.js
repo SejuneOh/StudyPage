@@ -1,17 +1,16 @@
 
 
 const defaultUser = {
-  name: "oh",
-  id: "David",
+  id: "",
 };
 
 const contextReducer = (state = defaultUser, action) => {
-  // console.log(`aciton:${action.type}, state: ${state}`);
+  console.log(`aciton:${action.type}, state: ${state}`);
   switch (action.type) {
-    case 'CHANGENAME':
-      return state + 1
-    case 'CHANGEID':
-      return state - 1
+    case 'LOGIN':
+      return action.payload
+    case 'LOGOUT':
+      return state.id = "";
     default:
       return state
   }

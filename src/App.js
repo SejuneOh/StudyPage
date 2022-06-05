@@ -8,7 +8,7 @@ import LoginSample from './Components/LoginSample.tsx'
 import Register from './Components/Register.tsx'
 import Signup from './Components/Signup.tsx'
 import ContextSample2 from './Components/ContextSample2.tsx';
-import ReduxSample from './Components/ReduxSample.tsx'
+import ReduxSample from './Components/ReduxSample.jsx'
 
 
 
